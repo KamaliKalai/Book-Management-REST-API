@@ -2,12 +2,11 @@
 # 📘 Book Management using REST API
 
 ## 🧩 Description
-The **Book Management REST API** is a Spring Boot project that provides CRUD (Create, Read, Update, Delete) operations for managing book records.  
-It uses **Spring Boot**, **Spring Data JPA**, and **MySQL**, and follows the **Controller → Service → Repository** layered architecture.
+The **Book Management REST API** is a Spring Boot project that provides CRUD (Create, Read, Update, Delete) operations for managing book records.It uses **Spring Boot**, **Spring Data JPA**, and **MySQL**, and follows the **Controller → Service → Repository** layered architecture.
 
 This project demonstrates how to build a RESTful backend using Java and connect it to a MySQL database.
 
----
+
 
 ## 💻 Technology Used
 - **Java**
@@ -17,7 +16,7 @@ This project demonstrates how to build a RESTful backend using Java and connect 
 - **Maven**
 - **Postman** (for testing)
 
----
+
 
 ## ✨ Features
 ✅ Add new books  
@@ -28,7 +27,7 @@ This project demonstrates how to build a RESTful backend using Java and connect 
 ✅ Integrated with MySQL database using JPA  
 ✅ Tested using Postman  
 
----
+
 
 ## 📂 Project Structure
 ```
@@ -48,7 +47,7 @@ bookapi/
 
 ````
 
----
+
 
 ## 🧠 Code Overview
 
@@ -66,11 +65,6 @@ public class Book {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-   
-	
-
-	
 	private String title;
     private String author;
     private double price;
@@ -116,7 +110,7 @@ public class Book {
 
 ````
 
----
+
 
 ### **2️⃣ Repository – BookRepository.java**
 
@@ -130,7 +124,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 }
 ```
 
----
+
 
 ### **3️⃣ Service – BookService.java**
 
@@ -147,7 +141,7 @@ import java.util.List;
 public class BookService {
 
     @Autowired
-    private BookRepository repository;  // ✅ Injected automatically by Spring
+    private BookRepository repository;  
 
     public List<Book> getAllBooks() {
         return repository.findAll();
@@ -178,7 +172,7 @@ public class BookService {
 
 ```
 
----
+
 
 ### **4️⃣ Controller – BookController.java**
 
@@ -195,7 +189,7 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private BookService service;  // ✅ Injected automatically
+    private BookService service; 
 
     @GetMapping("/api.books")
     public List<Book> getAllBooks() {
@@ -226,7 +220,6 @@ public class BookController {
 
 ```
 
----
 
 
 
@@ -252,7 +245,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.application.name=bookapi
 ```
 
----
+
 
 ## 🧪 Testing with Postman
 
@@ -278,7 +271,7 @@ Before testing the API, open **Postman** and follow these steps:
 }
 ```
 
----
+
 
 ## 🌐 API Endpoints
 
@@ -290,7 +283,7 @@ Before testing the API, open **Postman** and follow these steps:
 | **PUT**    | `/api.books/{id}` | Update a book  |
 | **DELETE** | `/api.books/{id}` | Delete a book  |
 
----
+
 
 ## 📦 Example API Responses
 
@@ -318,7 +311,7 @@ Before testing the API, open **Postman** and follow these steps:
 }
 ```
 
----
+
 
 ### **2️⃣ Get All Books (GET)**
 
@@ -336,7 +329,7 @@ Before testing the API, open **Postman** and follow these steps:
 ]
 ```
 
----
+
 
 ### **3️⃣ Update Book (PUT)**
 
@@ -362,7 +355,7 @@ Before testing the API, open **Postman** and follow these steps:
 }
 ```
 
----
+
 
 ### **4️⃣ Delete Book (DELETE)**
 
@@ -373,5 +366,5 @@ Before testing the API, open **Postman** and follow these steps:
 "Book deleted successfully!"
 ```
 
----
+
 
